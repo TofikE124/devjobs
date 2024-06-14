@@ -1,0 +1,14 @@
+@use "abstracts/variables" as *;
+.button-primary {
+  background-color: $VIOLET;
+  color: $WHITE;
+  font-size: 1rem;
+  border-radius: 5px;
+  padding: 1rem 2.5rem;
+  font-weight: 700;
+  transition: background-color 250ms;
+
+  &:hover {
+    background-color: $LIGHT_VIOLET;
+  }
+}

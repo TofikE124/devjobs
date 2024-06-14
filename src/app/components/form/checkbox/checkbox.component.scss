@@ -1,0 +1,58 @@
+@use "abstracts/variables" as *;
+.custom-checkbox {
+  display: inline-block;
+  position: relative;
+  width: 24px;
+  height: 24px;
+  outline: none;
+}
+
+.custom-checkbox input {
+  opacity: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  outline: none;
+}
+
+.custom-checkbox input:checked + .checkmark {
+  background-color: $VIOLET; /* Change to your desired color */
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 24px;
+  width: 24px;
+  border-radius: 3px;
+  background-color: rgba($VERY_DARK_BLUE, 0.1);
+  transition: background-color 250ms;
+  outline: none;
+
+  &:hover {
+    background-color: rgba($VIOLET, 0.25);
+  }
+}
+
+.checkmark::after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.custom-checkbox input:checked + .checkmark::after {
+  display: block;
+}
+
+.custom-checkbox .checkmark::after {
+  left: 50%;
+  top: 50%;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  rotate: 45deg;
+  translate: -50% -50%;
+}

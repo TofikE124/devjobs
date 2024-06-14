@@ -1,0 +1,28 @@
+@use "abstracts/variables" as *;
+
+.search-bar-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background-color: $WHITE;
+  padding: 1rem 2rem;
+  border-radius: 6px;
+  color: $VERY_DARK_BLUE;
+  font-size: 1rem;
+
+  .search-bar-input {
+    padding-block: 1rem;
+    outline: none;
+    background-color: transparent;
+  }
+
+  .search-bar-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}
+
+.dark .search-bar-container {
+  background-color: $VERY_DARK_BLUE;
+  color: $WHITE;
+}

@@ -1,0 +1,12 @@
+<div class="flex items-center gap-4">
+  <label class="custom-checkbox">
+    <input
+      [(ngModel)]="isChecked"
+      (ngModelChange)="onChange.emit($event)"
+      type="checkbox"
+      checked
+    />
+    <span class="checkmark"></span>
+  </label>
+  <p class="text-[16px] text-very-dark-blue font-bold">{{ label }}</p>
+</div>

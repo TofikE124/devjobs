@@ -1,0 +1,25 @@
+@use "abstracts/variables" as *;
+
+.button-secondary {
+  background-color: rgba($VIOLET, 0.1);
+  color: $VIOLET;
+  font-size: 1rem;
+  border-radius: 5px;
+  padding: 1rem 2.5rem;
+  font-weight: 700;
+  transition: background-color 250ms;
+
+  &:hover {
+    background-color: rgba($VIOLET, 0.35);
+  }
+}
+
+.dark .button-secondary {
+  background-color: rgba($WHITE, 0.1);
+  color: $WHITE;
+  transition: background-color 250ms;
+
+  &:hover {
+    background-color: rgba($WHITE, 0.35);
+  }
+}
