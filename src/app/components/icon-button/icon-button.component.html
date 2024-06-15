@@ -4,6 +4,7 @@
     'button-primary': type == 'primary',
     'button-secondary': type == 'secondary'
   }"
+  (click)="onClick.emit()"
 >
   <icon [iconType]="iconType" [color]="color"> </icon>
 </button>

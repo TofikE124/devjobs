@@ -31,10 +31,6 @@ body {
   line-height: 1.6;
 }
 
-.text-very-dark-blue {
-  color: $VERY_DARK_BLUE;
-}
-
 @include sm() {
   .h1 {
     font-size: 1.25rem; /* 20px */
@@ -42,4 +38,12 @@ body {
   .h2 {
     font-size: 1.25rem; /* 20px */
   }
+}
+
+.text-very-dark-blue {
+  color: $VERY_DARK_BLUE;
+}
+
+.text-pure-white {
+  color: $WHITE;
 }

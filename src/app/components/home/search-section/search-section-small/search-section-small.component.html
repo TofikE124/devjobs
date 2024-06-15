@@ -8,11 +8,24 @@
   <div class="mr-auto">
     <search-bar placeholder="Filter by title..."></search-bar>
   </div>
-  <button>
-    <icon
-      [iconType]="filterIconType"
-      [color]="isDark.value ? '#fff' : '#6E8098'"
-    ></icon>
-  </button>
+  <icon-button
+    type="none"
+    [iconType]="filterIconType"
+    [color]="isDark.value ? '#fff' : '#6E8098'"
+    (onClick)="panelService.openPanel(panelName)"
+  ></icon-button>
   <icon-button [iconType]="searchIconType"></icon-button>
 </div>
+
+<panel [panelName]="panelName">
+  <div class="border-b border-dark-grey-20 p-6">
+    <search-bar
+      placeholder="Filter by location…"
+      [iconType]="locationIconType"
+    ></search-bar>
+  </div>
+  <div class="flex flex-col gap-6 p-6">
+    <checkbox>Full Time <span class="mdsm:hidden">Only</span></checkbox>
+    <button class="button-primary w-full">Search</button>
+  </div>
+</panel>
