@@ -11,7 +11,7 @@ export class PanelService {
 
   public registerPanel(panelName: string): void {
     if (!this.panelStates[panelName]) {
-      this.panelStates[panelName] = new BehaviorSubject<boolean>(true);
+      this.panelStates[panelName] = new BehaviorSubject<boolean>(false);
     }
   }
 
