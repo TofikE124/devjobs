@@ -1,0 +1,56 @@
+@use "abstracts/variables" as *;
+
+.panel {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000; /* Ensure panel is on top */
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  transition: visibility 0s 10s;
+
+  &.panel-open {
+    visibility: visible;
+  }
+
+  .panel-content {
+    background-color: $WHITE;
+    padding: 1.5rem;
+    border-radius: 6px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 90%;
+    max-height: 90%;
+    overflow: auto;
+    opacity: 0;
+    transition: opacity 350ms, scale 300ms;
+    transform-origin: 50% 50%;
+
+    scale: 0;
+  }
+
+  .panel-content-open {
+    opacity: 1;
+    scale: 1;
+  }
+
+  .panel-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 250ms;
+  }
+
+  .panel-overlay-open {
+    opacity: 1;
+  }
+}

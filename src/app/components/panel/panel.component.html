@@ -1,0 +1,23 @@
+<div
+  class="panel"
+  *ngIf="{ value: panelService.getPanelState(panelName) | async } as panelOpen"
+  [ngClass]="{
+    'panel-open': panelOpen.value
+  }"
+>
+  <div
+    class="panel-content"
+    [ngClass]="{
+      'panel-content-open': panelOpen.value
+    }"
+  >
+    <ng-content></ng-content>
+  </div>
+  <div
+    class="panel-overlay"
+    [ngClass]="{
+      'panel-overlay-open': panelOpen.value
+    }"
+    (click)="closePanel()"
+  ></div>
+</div>

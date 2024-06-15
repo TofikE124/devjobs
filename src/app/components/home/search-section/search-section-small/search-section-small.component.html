@@ -1,14 +1,18 @@
 <div
   class="bg-pure-white px-6 py-4 flex items-center gap-6 rounded-md -mt-10 lgmd:hidden"
+  *ngIf="{ value: (isDark$ | async) } as isDark"
   [ngClass]="{
-    'bg-very-dark-blue': isDark$ | async
+    'bg-very-dark-blue': isDark.value
   }"
 >
   <div class="mr-auto">
     <search-bar placeholder="Filter by title..."></search-bar>
   </div>
   <button>
-    <icon [iconType]="filterIconType" color="#6E8098"></icon>
+    <icon
+      [iconType]="filterIconType"
+      [color]="isDark.value ? '#fff' : '#6E8098'"
+    ></icon>
   </button>
   <icon-button [iconType]="searchIconType"></icon-button>
 </div>
