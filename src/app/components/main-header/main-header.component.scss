@@ -1,0 +1,19 @@
+@use "abstracts/mixins" as *;
+
+.bg-header-pattern {
+  background-image: url("/assets/images/desktop/bg-pattern-header.svg");
+  background-size: cover;
+  background-position: bottom left;
+}
+
+@include md() {
+  .bg-header-pattern {
+    background-image: url("/assets/images/tablet/bg-pattern-header.svg");
+  }
+}
+
+@include sm() {
+  .bg-header-pattern {
+    background-image: url("/assets/images/mobile/bg-pattern-header.svg");
+  }
+}

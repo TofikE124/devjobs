@@ -1,0 +1,36 @@
+@use "abstracts/variables" as *;
+/*====================
+    Utility Classes
+======================*/
+
+/* General */
+.div-container {
+  padding-inline: 2em;
+  margin-inline: auto;
+  max-width: 80rem;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap; /* added line */
+  border: 0;
+}
+
+.border-dark-grey-20 {
+  border-style: solid;
+  border-color: rgba($DARK_GREY, 0.2);
+}
+
+.bg-pure-white {
+  background-color: $WHITE;
+}
+
+.bg-very-dark-blue {
+  background-color: $VERY_DARK_BLUE;
+}

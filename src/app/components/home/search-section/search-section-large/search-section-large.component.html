@@ -1,0 +1,26 @@
+<div
+  class="bg-pure-white flex items-stretch rounded-md -mt-10 sm:hidden"
+  [ngClass]="{
+    'bg-very-dark-blue': isDark$ | async
+  }"
+>
+  <div class="lg:w-1/2 md:w-1/3 px-8 py-4">
+    <search-bar
+      placeholder="Filter by title, companies, expertise…"
+    ></search-bar>
+  </div>
+  <div class="lg:w-1/4 md:w-1/3 px-6 py-4 border-l border-dark-grey-20">
+    <search-bar
+      placeholder="Filter by location…"
+      [iconType]="locationIconType"
+    ></search-bar>
+  </div>
+  <div
+    class="lg:w-1/4 md:w-1/3 px-8 py-4 grow flex items-center border-l border-dark-grey-20 min-w-[370px]"
+  >
+    <div class="flex items-center">
+      <checkbox>Full Time <span class="mdsm:hidden">Only</span></checkbox>
+      <button class="button-primary ml-4">Search</button>
+    </div>
+  </div>
+</div>

@@ -1,4 +1,5 @@
 @use "abstracts/variables" as *;
+
 .switch {
   position: relative;
   display: inline-block;
@@ -29,8 +30,9 @@
   right: 0;
   bottom: 0;
   background-color: $WHITE;
-  -webkit-transition: 0.4s;
-  transition: 0.4s;
+  -webkit-transition: none; /* Disable transition initially */
+  transition: none; /* Disable transition initially */
+
   &::before {
     position: absolute;
     content: "";
@@ -38,19 +40,21 @@
     width: 14px;
     left: 4px;
     bottom: 5px;
-    transition: background-color 250ms;
+    transition: none; /* Disable transition initially */
     background-color: $VIOLET;
-    -webkit-transition: 0.4s;
-    transition: 0.4s;
+    -webkit-transition: none; /* Disable transition initially */
+    transition: none; /* Disable transition initially */
   }
 }
 
-.slider input:checked + .slider {
-  // background-color: #2196f3;
-}
+.slider.transition-enabled {
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 
-input:focus + .slider {
-  // box-shadow: 0 0 1px #2196f3;
+  &::before {
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+  }
 }
 
 input:checked + .slider:before {

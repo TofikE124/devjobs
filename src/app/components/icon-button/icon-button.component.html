@@ -1,0 +1,9 @@
+<button
+  class="w-12 h-12 p-0 grid place-items-center"
+  [ngClass]="{
+    'button-primary': type == 'primary',
+    'button-secondary': type == 'secondary'
+  }"
+>
+  <icon [iconType]="iconType" [color]="color"> </icon>
+</button>

@@ -14,7 +14,7 @@
   }
 }
 
-.dark .button-secondary {
+[data-theme="dark"] .button-secondary {
   background-color: rgba($WHITE, 0.1);
   color: $WHITE;
   transition: background-color 250ms;

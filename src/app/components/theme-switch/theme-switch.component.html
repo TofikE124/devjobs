@@ -1,5 +1,8 @@
 <div class="flex items-center gap-4">
   <img [src]="sunIcon.URL" />
-  <switch></switch>
+  <switch
+    [defaultChecked]="isDarkMode()"
+    (onChange)="handleChange($event)"
+  ></switch>
   <img [src]="moonIcon.URL" />
 </div>

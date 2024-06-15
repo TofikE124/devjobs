@@ -1,4 +1,10 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+  ViewEncapsulation,
+} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -7,9 +13,9 @@ import { FormsModule } from '@angular/forms';
   imports: [FormsModule],
   templateUrl: './checkbox.component.html',
   styleUrl: './checkbox.component.scss',
+  encapsulation: ViewEncapsulation.None,
 })
 export class CheckboxComponent {
-  @Input('label') label!: string;
   @Output('onChange') onChange: EventEmitter<boolean> =
     new EventEmitter<boolean>();
 

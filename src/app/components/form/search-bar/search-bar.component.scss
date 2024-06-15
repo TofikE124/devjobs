@@ -22,7 +22,7 @@
   }
 }
 
-.dark .search-bar-container {
+[data-theme="dark"] .search-bar-container {
   background-color: $VERY_DARK_BLUE;
   color: $WHITE;
 }

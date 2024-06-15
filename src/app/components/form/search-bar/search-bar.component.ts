@@ -1,5 +1,6 @@
-import { Component, ViewEncapsulation } from '@angular/core';
-import { iconMap, IconType } from '../../../constants/icons';
+import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import { IconType } from '../../../constants/icons';
+import { iconMap } from './../../../constants/icons';
 
 @Component({
   selector: 'search-bar',
@@ -9,6 +10,13 @@ import { iconMap, IconType } from '../../../constants/icons';
   styleUrl: './search-bar.component.scss',
   encapsulation: ViewEncapsulation.None,
 })
-export class SearchBarComponent {
-  searchIcon = iconMap[IconType.SEARCH];
+export class SearchBarComponent implements OnInit {
+  @Input('iconType') iconType: IconType = IconType.SEARCH;
+  @Input('placeholder') placeholder: string = '';
+
+  icon = iconMap[this.iconType];
+
+  ngOnInit(): void {
+    this.icon = iconMap[this.iconType];
+  }
 }

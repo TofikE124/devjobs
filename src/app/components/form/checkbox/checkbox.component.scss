@@ -1,4 +1,5 @@
 @use "abstracts/variables" as *;
+
 .custom-checkbox {
   display: inline-block;
   position: relative;
@@ -36,6 +37,13 @@
   }
 }
 
+[data-theme="dark"] .checkmark {
+  background-color: rgba($WHITE, 0.1);
+  &:hover {
+    background-color: rgba($WHITE, 0.25);
+  }
+}
+
 .checkmark::after {
   content: "";
   position: absolute;
@@ -55,4 +63,12 @@
   border-width: 0 3px 3px 0;
   rotate: 45deg;
   translate: -50% -50%;
+}
+
+.checkbox-label {
+  color: $VERY_DARK_BLUE;
+}
+
+[data-theme="dark"] .checkbox-label {
+  color: $WHITE;
 }

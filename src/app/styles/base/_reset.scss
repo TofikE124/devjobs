@@ -1,7 +1,8 @@
+@use "/abstracts/variables" as *;
+
 /*====================
         Resets
 ======================*/
-
 /* Box sizing */
 *,
 *::before,
@@ -22,11 +23,18 @@ picture,
 ul {
   margin: 0;
 }
- 
+
 /* Set up the body */
 body {
   min-height: 100vh;
   font-family: "Kumbh Sans", sans-serif;
+  background-color: $LIGHT_GREY;
+}
+
+[data-theme="dark"] {
+  body {
+    background-color: $MIDNIGHT;
+  }
 }
 
 /* Make images and pictures easier to work with */

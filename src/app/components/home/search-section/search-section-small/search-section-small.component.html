@@ -1,0 +1,14 @@
+<div
+  class="bg-pure-white px-6 py-4 flex items-center gap-6 rounded-md -mt-10 lgmd:hidden"
+  [ngClass]="{
+    'bg-very-dark-blue': isDark$ | async
+  }"
+>
+  <div class="mr-auto">
+    <search-bar placeholder="Filter by title..."></search-bar>
+  </div>
+  <button>
+    <icon [iconType]="filterIconType" color="#6E8098"></icon>
+  </button>
+  <icon-button [iconType]="searchIconType"></icon-button>
+</div>
