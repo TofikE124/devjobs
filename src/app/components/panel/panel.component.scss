@@ -12,7 +12,7 @@
   justify-content: center;
   align-items: center;
   visibility: hidden;
-  transition: visibility 0s 10s;
+  transition: visibility 300ms;
 
   &.panel-open {
     visibility: visible;
@@ -20,7 +20,6 @@
 
   .panel-content {
     background-color: $WHITE;
-    padding: 1.5rem;
     border-radius: 6px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     max-width: 90%;
@@ -29,7 +28,6 @@
     opacity: 0;
     transition: opacity 350ms, scale 300ms;
     transform-origin: 50% 50%;
-
     scale: 0;
   }
 
@@ -52,5 +50,11 @@
 
   .panel-overlay-open {
     opacity: 1;
+  }
+}
+
+[data-theme="dark"] {
+  .panel-content {
+    background-color: $VERY_DARK_BLUE;
   }
 }

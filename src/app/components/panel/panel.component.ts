@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ViewEncapsulation } from '@angular/core';
 import { PanelService } from '../../services/panel.service';
 import { CommonModule } from '@angular/common';
 
@@ -8,6 +8,7 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule],
   templateUrl: './panel.component.html',
   styleUrl: './panel.component.scss',
+  encapsulation: ViewEncapsulation.None,
 })
 export class PanelComponent {
   @Input() panelName!: string;
