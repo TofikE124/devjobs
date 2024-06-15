@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { MainHeaderComponent } from './components/main-header/main-header.component';
+import { JobService } from './services/jobs.service';
 
 @Component({
   selector: 'app-root',
