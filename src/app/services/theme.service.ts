@@ -12,7 +12,7 @@ export class ThemeService {
   private currentTheme: string = 'light';
   private isDarkSubject: BehaviorSubject<boolean> =
     new BehaviorSubject<boolean>(false);
-  isDark$: Observable<boolean> = this.isDarkSubject.asObservable();
+  dark$: Observable<boolean> = this.isDarkSubject.asObservable();
 
   constructor(private storageService: StorageService) {
     this.loadTheme();

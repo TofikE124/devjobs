@@ -1,0 +1,6 @@
+<div class="div-container pb-24" *ngIf="job$ | async as job">
+  <div *ngIf="{ value: dark$ | async } as dark">
+    <job-header [job]="job" [dark]="dark.value!"></job-header>
+    <job-details [job]="job" [dark]="dark.value!"></job-details>
+  </div>
+</div>

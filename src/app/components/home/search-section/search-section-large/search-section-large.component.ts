@@ -16,7 +16,7 @@ import { SearchBarComponent } from '../../../form/search-bar/search-bar.componen
 export class SearchSectionLargeComponent {
   isDark$: Observable<boolean>;
   constructor(themeService: ThemeService) {
-    this.isDark$ = themeService.isDark$;
+    this.isDark$ = themeService.dark$;
   }
 
   locationIconType = IconType.LOCATION;

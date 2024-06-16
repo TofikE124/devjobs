@@ -27,7 +27,7 @@ import { CheckboxComponent } from '../../../form/checkbox/checkbox.component';
 export class SearchSectionSmallComponent {
   isDark$: Observable<boolean>;
   constructor(themeService: ThemeService, public panelService: PanelService) {
-    this.isDark$ = themeService.isDark$;
+    this.isDark$ = themeService.dark$;
   }
 
   searchIconType = IconType.SEARCH;

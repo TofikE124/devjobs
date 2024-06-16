@@ -1,12 +1,12 @@
-<div *ngIf="{ value: themeService.isDark$ | async } as isDark">
+<div *ngIf="{ value: themeService.dark$ | async } as isDark">
   <div
     *ngIf="jobs$ | async as jobs"
-    class="grid lg:grid-cols-3 lg:gap-x-8 lgmd:gap-y-16 lg:mt-[105px] md:grid-cols-2 md:gap-x-3 md:mt-[70px] sm:grid-cols-1 sm:gap-y-12 sm:mt-14"
+    class="grid pb-[120px] lg:grid-cols-3 lg:gap-x-8 lgmd:gap-y-16 lg:mt-[105px] md:grid-cols-2 md:gap-x-3 md:mt-[70px] sm:grid-cols-1 sm:gap-y-12 sm:mt-14"
   >
     <job-preview
       *ngFor="let job of jobs"
       [dark]="isDark.value || false"
-      [job]="job"
+      [job]="job.value"
     ></job-preview>
   </div>
 </div>

@@ -1,6 +1,7 @@
 <div
-  class="bg-pure-white px-8 pb-9 rounded-md w-full h-full"
-  [ngClass]="{ 'bg-very-dark-blue': dark }"
+  class="px-8 pb-9 w-full h-full rounded-md cursor-pointer select-none"
+  [ngClass]="{ 'bg-very-dark-blue': dark, 'bg-pure-white': !dark }"
+  [routerLink]="['/jobs', job.id]"
 >
   <div class="translate-y-[-50%]">
     <div
@@ -24,6 +25,6 @@
       {{ job.position }}
     </h3>
     <p class="text-dark-grey mt-4">{{ job.company }}</p>
-    <h4 class="text-violet mt-11">{{ job.location }}</h4>
+    <h4 class="h4 text-violet mt-11">{{ job.location }}</h4>
   </div>
 </div>

@@ -1,17 +1,37 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { AngularFireDatabase } from '@angular/fire/compat/database';
+import { map, Observable } from 'rxjs';
 import { Job } from '../types/Job';
 
 @Injectable({
   providedIn: 'root',
 })
 export class JobService {
-  private dataUrl: string = 'assets/data/jobs.json';
+  constructor(private db: AngularFireDatabase) {}
+  getJobs() {
+    return this.db
+      .list('/jobs')
+      .snapshotChanges()
+      .pipe(
+        map((snapshot) => {
+          const values = snapshot.map((item) => ({
+            id: item.key,
+            value: item.payload.val() as Job,
+          }));
+          return values;
+        })
+      );
+  }
 
-  constructor(private http: HttpClient) {}
-
-  getJobs(): Observable<Job[]> {
-    return this.http.get<Job[]>(this.dataUrl);
+  getJobWithId(id: string) {
+    return this.db
+      .object('/jobs/' + id)
+      .snapshotChanges()
+      .pipe(
+        map((snapshot) => {
+          let value = snapshot.payload.val() as Job;
+          return { value, id: snapshot.key };
+        })
+      );
   }
 }
