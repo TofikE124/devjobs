@@ -7,11 +7,17 @@ import { Job } from '../../../types/Job';
 import { CommonModule } from '@angular/common';
 import { ThemeService } from '../../../services/theme.service';
 import { JobDetailsComponent } from '../job-details/job-details.component';
+import { JobFooterComponent } from '../job-footer/job-footer.component';
 
 @Component({
-  selector: 'app-job-info',
+  selector: 'job-info',
   standalone: true,
-  imports: [JobHeaderComponent, JobDetailsComponent, CommonModule],
+  imports: [
+    JobHeaderComponent,
+    JobDetailsComponent,
+    JobFooterComponent,
+    CommonModule,
+  ],
   templateUrl: './job-info.component.html',
   styleUrl: './job-info.component.scss',
 })

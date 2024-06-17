@@ -1,14 +1,14 @@
 <div
-  class="w-full flex gap-10 items-center rounded-md rounded-tl-none overflow-hidden pr-10 -mt-10"
+  class="w-full flex lgmd:gap-10 lgmd:overflow-hidden items-center rounded-md rounded-tl-none lgmd:pr-10 -mt-10 sm:flex-col sm:text-center sm:pb-8 sm:rounded-md"
   [ngClass]="{ 'bg-pure-white': !dark, 'bg-very-dark-blue': dark }"
 >
   <div
-    class="w-[140px] h-[140px] grid place-items-center"
+    class="w-[140px] sm:w-[50px] sm:rounded-[15px] sm:translate-y-[-50%] aspect-square grid place-items-center"
     [style.background-color]="job.logoBackground"
   >
     <img [src]="job.logo" />
   </div>
-  <div class="flex flex-col gap-3 mr-auto">
+  <div class="flex flex-col gap-3 lgmd:mr-auto">
     <h2
       class="h2"
       [ngClass]="{ 'text-very-dark-blue': !dark, 'text-pure-white': dark }"
@@ -17,5 +17,12 @@
     </h2>
     <p class="text-dark-grey">{{ job.website }}</p>
   </div>
-  <button class="button-secondary">Company Site</button>
+  <a
+    class="button-secondary cursor-pointer sm:mt-7"
+    [href]="job.website"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Company Site
+  </a>
 </div>

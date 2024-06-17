@@ -1,0 +1,27 @@
+<div
+  class="fixed bottom-0 left-0 right-0 rounded-md py-6 px-10 sm:p-6"
+  [ngClass]="{
+    'bg-pure-white': !dark,
+    'bg-very-dark-blue': dark
+  }"
+>
+  <div class="flex items-center justify-between div-container">
+    <div class="flex flex-col gap-3 sm:hidden">
+      <h3
+        class="h3"
+        [ngClass]="{ 'text-very-dark-blue': !dark, 'text-pure-white': dark }"
+      >
+        {{ job.position }}
+      </h3>
+      <p class="text-dark-grey">{{ job.company }}</p>
+    </div>
+    <a
+      class="button-primary cursor-pointer sm:w-full"
+      [href]="job.apply"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Apply Now
+    </a>
+  </div>
+</div>
