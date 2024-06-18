@@ -1,14 +1,13 @@
 <div class="flex items-center gap-4 select-none">
-  <div class="custom-checkbox">
+  <label class="custom-checkbox">
     <input
       [(ngModel)]="value"
       (ngModelChange)="handleChange()"
       type="checkbox"
-      checked
       [id]="queryParam"
     />
     <span class="checkmark"></span>
-  </div>
+  </label>
   <label
     [for]="queryParam"
     class="checkbox-label text-nowrap text-[16px] font-bold ml-4"

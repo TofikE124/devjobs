@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Job } from '../../../types/Job';
-import { NgClass } from '@angular/common';
+import { Location, NgClass } from '@angular/common';
 
 @Component({
   selector: 'job-header',
@@ -12,4 +12,10 @@ import { NgClass } from '@angular/common';
 export class JobHeaderComponent {
   @Input('job') job!: Job;
   @Input('dark') dark: boolean = false;
+
+  constructor(public location: Location) {}
+
+  goBack() {
+    this.location.back();
+  }
 }

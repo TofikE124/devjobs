@@ -1,28 +1,33 @@
 <div
-  class="w-full flex lgmd:gap-10 lgmd:overflow-hidden items-center rounded-md rounded-tl-none lgmd:pr-10 -mt-10 sm:flex-col sm:text-center sm:pb-8 sm:rounded-md"
+  class="rounded-md w-full lgmd:pr-10 -mt-10 sm:text-center sm:pb-8 sm:rounded-md"
   [ngClass]="{ 'bg-pure-white': !dark, 'bg-very-dark-blue': dark }"
 >
-  <div
-    class="w-[140px] sm:w-[50px] sm:rounded-[15px] sm:translate-y-[-50%] aspect-square grid place-items-center"
-    [style.background-color]="job.logoBackground"
-  >
-    <img [src]="job.logo" />
+  <div class="p-4">
+    <button class="button-primary" (click)="goBack()">Back</button>
   </div>
-  <div class="flex flex-col gap-3 lgmd:mr-auto">
-    <h2
-      class="h2"
-      [ngClass]="{ 'text-very-dark-blue': !dark, 'text-pure-white': dark }"
+  <div class="flex lgmd:gap-10 lgmd:overflow-hidden items-center sm:flex-col">
+    <div
+      class="w-[140px] sm:w-[50px] sm:rounded-[15px] sm:translate-y-[-50%] aspect-square grid place-items-center"
+      [style.background-color]="job.logoBackground"
     >
-      {{ job.company }}
-    </h2>
-    <p class="text-dark-grey">{{ job.website }}</p>
+      <img [src]="job.logo" />
+    </div>
+    <div class="flex flex-col gap-3 lgmd:mr-auto">
+      <h2
+        class="h2"
+        [ngClass]="{ 'text-very-dark-blue': !dark, 'text-pure-white': dark }"
+      >
+        {{ job.company }}
+      </h2>
+      <p class="text-dark-grey">{{ job.website }}</p>
+    </div>
+    <a
+      class="button-secondary cursor-pointer sm:mt-7"
+      [href]="job.website"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Company Site
+    </a>
   </div>
-  <a
-    class="button-secondary cursor-pointer sm:mt-7"
-    [href]="job.website"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    Company Site
-  </a>
 </div>

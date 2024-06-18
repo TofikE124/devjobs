@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 import { switchMap, map } from 'rxjs/operators';
 import { Job } from '../types/Job';
 import { ActivatedRoute } from '@angular/router';
@@ -12,8 +12,16 @@ import { QueryParams } from '../constants/queryParams';
 export class JobService {
   firstTime: boolean = true;
   private jobsSubject = new BehaviorSubject<{ id: string; value: Job }[]>([]);
-  private jobs: any[] = [];
   jobs$ = this.jobsSubject.asObservable();
+  private jobs: any[] = [];
+
+  private jobsEmptyMessageSubject = new BehaviorSubject('');
+  public jobsEmptyMessage$: Observable<string> =
+    this.jobsEmptyMessageSubject.asObservable();
+
+  title: string = '';
+  location: string = '';
+  fullTime: boolean = false;
 
   constructor(private db: AngularFireDatabase, private route: ActivatedRoute) {
     this.initializeJobs();
@@ -28,17 +36,14 @@ export class JobService {
             .snapshotChanges()
             .pipe(
               map((snapshot) => {
-                const title = queryParams.get(QueryParams.TITLE) || '';
-                const location = queryParams.get(QueryParams.LOCATION) || '';
-                let fullTime =
-                  queryParams.get(QueryParams.FULL_TIME) == null
-                    ? null
-                    : Boolean(queryParams.get(QueryParams.FULL_TIME));
+                this.title = queryParams.get(QueryParams.TITLE) || '';
+                this.location = queryParams.get(QueryParams.LOCATION) || '';
+                this.fullTime = Boolean(queryParams.get(QueryParams.FULL_TIME));
                 const values = snapshot.map((item) => ({
                   id: item.key!,
                   value: item.payload.val() as Job,
                 }));
-                return this.filterValues(values, title, location, fullTime);
+                return this.filterValues(values);
               })
             );
         })
@@ -54,6 +59,7 @@ export class JobService {
 
   searchJobs() {
     this.jobsSubject.next(this.jobs);
+    this.jobsEmptyMessageSubject.next(this.getNotFoundMessage());
   }
 
   getJobWithId(id: string) {
@@ -68,26 +74,30 @@ export class JobService {
       );
   }
 
-  private filterValues(
-    values: { id: string; value: Job }[],
-    title: string,
-    location: string,
-    fullTime: boolean | null
-  ) {
+  private filterValues(values: { id: string; value: Job }[]) {
     return values.filter((value) => {
-      let titleCondition = title
-        ? value.value.position.toLowerCase().includes(title.toLowerCase())
+      let titleCondition = this.title
+        ? value.value.position.toLowerCase().includes(this.title.toLowerCase())
         : true;
       let locationCondition = location
-        ? value.value.location.toLowerCase().includes(location.toLowerCase())
+        ? value.value.location
+            .toLowerCase()
+            .includes(this.location.toLowerCase())
         : true;
-      let fullTimeCondition =
-        fullTime == null
-          ? true
-          : fullTime
-          ? value.value.contract == 'Full Time'
-          : value.value.contract == 'Part Time';
+      let fullTimeCondition = this.fullTime
+        ? value.value.contract == 'Full Time'
+        : true;
       return titleCondition && locationCondition && fullTimeCondition;
     });
+  }
+
+  private getNotFoundMessage() {
+    let titleMessage = this.title ? `for "${this.title}"` : '';
+    let locationMessage = this.location ? `in "${this.location}"` : '';
+    let fullTimeMessage = this.fullTime ? 'Fulltime' : '';
+
+    let message = `0 ${fullTimeMessage} Jobs were found ${titleMessage} ${locationMessage}`;
+    console.log(message);
+    return message;
   }
 }
