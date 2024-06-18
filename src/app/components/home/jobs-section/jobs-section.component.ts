@@ -15,6 +15,6 @@ export class JobsSectionComponent {
   jobs$;
 
   constructor(jobService: JobService, public themeService: ThemeService) {
-    this.jobs$ = jobService.getJobs();
+    this.jobs$ = jobService.jobs$;
   }
 }

@@ -1,3 +1,4 @@
+import { JobService } from './../../../../services/jobs.service';
 import { PanelService } from './../../../../services/panel.service';
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
@@ -9,6 +10,7 @@ import { IconButtonComponent } from '../../../icon-button/icon-button.component'
 import { IconComponent } from '../../../icon/icon.component';
 import { PanelComponent } from '../../../panel/panel.component';
 import { CheckboxComponent } from '../../../form/checkbox/checkbox.component';
+import { QueryParams } from '../../../../constants/queryParams';
 
 @Component({
   selector: 'search-section-small',
@@ -25,8 +27,13 @@ import { CheckboxComponent } from '../../../form/checkbox/checkbox.component';
   styleUrl: './search-section-small.component.scss',
 })
 export class SearchSectionSmallComponent {
+  queryParams = QueryParams;
   isDark$: Observable<boolean>;
-  constructor(themeService: ThemeService, public panelService: PanelService) {
+  constructor(
+    themeService: ThemeService,
+    public panelService: PanelService,
+    public jobService: JobService
+  ) {
     this.isDark$ = themeService.dark$;
   }
 

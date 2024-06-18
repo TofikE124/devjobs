@@ -1,14 +1,18 @@
-<div class="flex items-center gap-4">
-  <label class="custom-checkbox">
+<div class="flex items-center gap-4 select-none">
+  <div class="custom-checkbox">
     <input
-      [(ngModel)]="isChecked"
-      (ngModelChange)="onChange.emit($event)"
+      [(ngModel)]="value"
+      (ngModelChange)="handleChange()"
       type="checkbox"
       checked
+      [id]="queryParam"
     />
     <span class="checkmark"></span>
-  </label>
-  <p class="checkbox-label text-nowrap text-[16px] font-bold ml-4">
+  </div>
+  <label
+    [for]="queryParam"
+    class="checkbox-label text-nowrap text-[16px] font-bold ml-4"
+  >
     <ng-content></ng-content>
-  </p>
+  </label>
 </div>

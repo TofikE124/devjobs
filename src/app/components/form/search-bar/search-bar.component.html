@@ -1,4 +1,9 @@
 <div class="search-bar-container">
   <img class="search-bar-icon" [src]="icon.URL" />
-  <input class="search-bar-input w-[90%]" [placeholder]="placeholder" />
+  <input
+    class="search-bar-input w-[90%]"
+    [placeholder]="placeholder"
+    [(ngModel)]="value"
+    (ngModelChange)="handleValueChange()"
+  />
 </div>

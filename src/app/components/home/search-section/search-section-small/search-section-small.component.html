@@ -6,7 +6,10 @@
   }"
 >
   <div class="mr-auto">
-    <search-bar placeholder="Filter by title..."></search-bar>
+    <search-bar
+      placeholder="Filter by title..."
+      [queryParam]="queryParams.TITLE"
+    ></search-bar>
   </div>
   <icon-button
     type="none"
@@ -22,10 +25,15 @@
     <search-bar
       placeholder="Filter by location…"
       [iconType]="locationIconType"
+      [queryParam]="queryParams.LOCATION"
     ></search-bar>
   </div>
   <div class="flex flex-col gap-6 p-6">
-    <checkbox>Full Time <span class="mdsm:hidden">Only</span></checkbox>
-    <button class="button-primary w-full">Search</button>
+    <checkbox [queryParam]="queryParams.FULL_TIME"
+      >Full Time <span class="mdsm:hidden">Only</span></checkbox
+    >
+    <button class="button-primary w-full" (click)="jobService.searchJobs()">
+      Search
+    </button>
   </div>
 </panel>

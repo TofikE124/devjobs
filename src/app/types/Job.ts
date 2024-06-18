@@ -5,7 +5,7 @@ export interface Job {
   logoBackground: string;
   position: string;
   postedAt: string;
-  contract: string;
+  contract: 'Full Time' | 'Part Time';
   location: string;
   website: string;
   apply: string;

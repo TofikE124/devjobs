@@ -20,7 +20,6 @@ export class PanelComponent {
   }
 
   closePanel() {
-    console.log('close');
     this.panelService.closePanel(this.panelName);
   }
 }
