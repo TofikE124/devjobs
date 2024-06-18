@@ -1,9 +1,14 @@
 <div
-  class="rounded-md w-full lgmd:pr-10 -mt-10 sm:text-center sm:pb-8 sm:rounded-md"
+  class="relative rounded-md w-full lgmd:pr-10 -mt-10 sm:text-center sm:pb-8 sm:rounded-md"
   [ngClass]="{ 'bg-pure-white': !dark, 'bg-very-dark-blue': dark }"
 >
-  <div class="p-4">
-    <button class="button-primary" (click)="goBack()">Back</button>
+  <div class="p-4 sm:p-0 sm:absolute">
+    <button class="button-primary sm:hidden" (click)="goBack()">Back</button>
+    <icon-button
+      class="lgmd:hidden"
+      [iconType]="iconType.BACK"
+      (onClick)="goBack()"
+    ></icon-button>
   </div>
   <div class="flex lgmd:gap-10 lgmd:overflow-hidden items-center sm:flex-col">
     <div

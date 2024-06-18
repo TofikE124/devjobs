@@ -42,4 +42,9 @@ export class SearchSectionSmallComponent {
   locationIconType = IconType.LOCATION;
 
   panelName = 'small-search-section-panel';
+
+  handleSearch = () => {
+    this.jobService.searchJobs();
+    this.panelService.closePanel(this.panelName);
+  };
 }
