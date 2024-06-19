@@ -16,6 +16,7 @@ export class JobsEmptyComponent {
   emptyMessage$;
 
   constructor(jobService: JobService) {
+    jobService.jobs$.subscribe((v) => console.log(v));
     this.emptyMessage$ = jobService.jobsEmptyMessage$;
   }
 }

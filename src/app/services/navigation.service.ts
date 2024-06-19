@@ -17,8 +17,8 @@ export class NavigationService {
     });
   }
 
-  initializeQueryParam(param?: string) {
-    return this.route.queryParamMap.pipe(take(1)).pipe(
+  followQueryParam(param?: string) {
+    return this.route.queryParamMap.pipe(
       map((queryParams) => {
         if (param) return queryParams.get(param) || '';
         else return '';

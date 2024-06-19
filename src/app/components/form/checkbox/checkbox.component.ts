@@ -28,7 +28,7 @@ export class CheckboxComponent implements OnInit {
   constructor(private navigationService: NavigationService) {}
   ngOnInit(): void {
     this.navigationService
-      .initializeQueryParam(this.queryParam)
+      .followQueryParam(this.queryParam)
       .subscribe((v) => (this.value = Boolean(v)));
   }
 

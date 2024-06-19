@@ -16,9 +16,8 @@ export class JobService {
   private jobs: any[] = [];
 
   private jobsEmptyMessageSubject = new BehaviorSubject('');
-  public jobsEmptyMessage$: Observable<string> = this.jobsEmptyMessageSubject
-    .asObservable()
-    .pipe(skip(1));
+  public jobsEmptyMessage$: Observable<string> =
+    this.jobsEmptyMessageSubject.asObservable();
 
   title: string = '';
   location: string = '';
@@ -53,6 +52,7 @@ export class JobService {
         this.jobs = jobs;
         if (this.firstTime) {
           this.jobsSubject.next(jobs);
+          this.jobsEmptyMessageSubject.next(this.getEmptyMessage());
           this.firstTime = false;
         }
       });
@@ -60,7 +60,7 @@ export class JobService {
 
   searchJobs() {
     this.jobsSubject.next(this.jobs);
-    this.jobsEmptyMessageSubject.next(this.getNotFoundMessage());
+    this.jobsEmptyMessageSubject.next(this.getEmptyMessage());
   }
 
   getJobWithId(id: string) {
@@ -92,7 +92,7 @@ export class JobService {
     });
   }
 
-  private getNotFoundMessage() {
+  private getEmptyMessage() {
     let titleMessage = this.title ? `for "${this.title}"` : '';
     let locationMessage = this.location ? `in "${this.location}"` : '';
     let fullTimeMessage = this.fullTime ? 'Fulltime' : '';
@@ -104,5 +104,6 @@ export class JobService {
   public refreshJobs() {
     if (this.firstTime) return;
     this.jobsSubject.next(this.jobs);
+    this.jobsEmptyMessageSubject.next(this.getEmptyMessage());
   }
 }

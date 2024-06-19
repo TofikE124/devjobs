@@ -16,13 +16,7 @@
             <div class="w-1 h-1 rounded-full bg-dark-grey"></div>
             <p class="text-dark-grey">{{ job.contract }}</p>
           </div>
-          <h1
-            class="h1"
-            [ngClass]="{
-              'text-very-dark-blue': !dark,
-              'text-pure-white': dark
-            }"
-          >
+          <h1 class="h1 text-very-dark-blue-res">
             {{ job.position }}
           </h1>
           <h4 class="h4 text-violet">{{ job.location }}</h4>
@@ -42,15 +36,7 @@
     </div>
     <div class="mt-10">
       <div>
-        <h3
-          class="h3"
-          [ngClass]="{
-            'text-very-dark-blue': !dark,
-            'text-pure-white': dark
-          }"
-        >
-          Requirements
-        </h3>
+        <h3 class="h3 text-very-dark-blue-res">Requirements</h3>
         <div class="mt-7">
           <p class="text-dark-grey mb-6">{{ job.requirements.content }}</p>
           <ul class="flex flex-col gap-2 list-disc list-inside">
@@ -65,15 +51,7 @@
       </div>
     </div>
     <div class="mt-10">
-      <h3
-        class="h3 mb-7"
-        [ngClass]="{
-          'text-very-dark-blue': !dark,
-          'text-pure-white': dark
-        }"
-      >
-        What You Will Do
-      </h3>
+      <h3 class="h3 mb-7 text-very-dark-blue-res">What You Will Do</h3>
       <div class="mt-7">
         <p class="text-dark-grey mb-6">{{ job.role.content }}</p>
         <ol class="list-none flex flex-col gap-2">

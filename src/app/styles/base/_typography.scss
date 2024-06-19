@@ -55,3 +55,13 @@ body {
 .text-violet {
   color: $VIOLET;
 }
+
+.text-very-dark-blue-res {
+  color: $VERY_DARK_BLUE;
+}
+
+[data-theme="dark"] {
+  .text-very-dark-blue-res {
+    color: $WHITE;
+  }
+}

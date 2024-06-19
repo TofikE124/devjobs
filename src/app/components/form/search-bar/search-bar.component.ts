@@ -38,7 +38,7 @@ export class SearchBarComponent implements OnInit {
   ngOnInit(): void {
     this.icon = iconMap[this.iconType];
     this.navigationService
-      .initializeQueryParam(this.queryParam)
+      .followQueryParam(this.queryParam)
       .subscribe((v) => (this.value = v));
   }
 
