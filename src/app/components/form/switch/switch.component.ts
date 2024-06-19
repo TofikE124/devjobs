@@ -20,7 +20,7 @@ export class SwitchComponent implements OnInit {
   }
 
   ngAfterViewInit() {
-    // Add the transition-enabled class after the view has initialized
+    if (typeof document == 'undefined') return;
     setTimeout(() => {
       const sliderElement = document.querySelector('.slider');
       if (sliderElement) {

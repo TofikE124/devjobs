@@ -80,10 +80,11 @@ export class JobService {
       let titleCondition = this.title
         ? value.value.position.toLowerCase().includes(this.title.toLowerCase())
         : true;
-      let locationCondition = location
-        ? value.value.location
-            .toLowerCase()
-            .includes(this.location.toLowerCase())
+
+      let locationCondition = this.location
+        ? value.value?.location
+            ?.toLowerCase()
+            ?.includes(this.location.toLowerCase())
         : true;
       let fullTimeCondition = this.fullTime
         ? value.value.contract == 'Full Time'
