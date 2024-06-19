@@ -1,0 +1,11 @@
+<ngx-skeleton-loader
+  *ngIf="{ value: dark$ | async } as dark"
+  [theme]="{
+    width: '100%',
+    height: '230px',
+    'border-radius': '6px',
+    'background-color': dark.value ? '#19202D' : '#fff',
+    cursor: 'pointer',
+  }"
+  animation="pulse"
+></ngx-skeleton-loader>

@@ -17,7 +17,10 @@
     [color]="isDark.value ? '#fff' : '#6E8098'"
     (onClick)="panelService.openPanel(panelName)"
   ></icon-button>
-  <icon-button [iconType]="searchIconType"></icon-button>
+  <icon-button
+    [iconType]="searchIconType"
+    (onClick)="jobService.searchJobs()"
+  ></icon-button>
 </div>
 
 <panel [panelName]="panelName">

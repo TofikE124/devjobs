@@ -1,10 +1,16 @@
 <div
   class="div-container lg:pb-[200px] mdsm:pb-[150px]"
-  *ngIf="job$ | async as job"
+  *ngIf="{ value: dark$ | async } as dark"
 >
-  <div *ngIf="{ value: dark$ | async } as dark">
-    <job-header [job]="job" [dark]="dark.value!"></job-header>
-    <job-details [job]="job" [dark]="dark.value!"></job-details>
-    <job-footer [job]="job" [dark]="dark.value!"></job-footer>
+  <div *ngIf="!loading && job">
+    <div>
+      <job-header [job]="job" [dark]="dark.value!"></job-header>
+      <job-details [job]="job" [dark]="dark.value!"></job-details>
+      <job-footer [job]="job" [dark]="dark.value!"></job-footer>
+    </div>
+  </div>
+  <div *ngIf="loading">
+    <job-header-loading [dark]="dark.value!"> </job-header-loading>
+    <job-details-loading [dark]="dark.value!"></job-details-loading>
   </div>
 </div>

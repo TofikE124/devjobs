@@ -1,8 +1,8 @@
-import { Component, Input } from '@angular/core';
-import { Job } from '../../../types/Job';
 import { Location, NgClass } from '@angular/common';
-import { IconButtonComponent } from '../../icon-button/icon-button.component';
+import { Component, Input } from '@angular/core';
 import { IconType } from '../../../constants/icons';
+import { Job } from '../../../types/Job';
+import { IconButtonComponent } from '../../icon-button/icon-button.component';
 @Component({
   selector: 'job-header',
   standalone: true,

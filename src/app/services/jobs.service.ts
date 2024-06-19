@@ -1,23 +1,24 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { BehaviorSubject, Observable, of } from 'rxjs';
-import { switchMap, map } from 'rxjs/operators';
+import { switchMap, map, shareReplay, skip } from 'rxjs/operators';
 import { Job } from '../types/Job';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { QueryParams } from '../constants/queryParams';
 
 @Injectable({
   providedIn: 'root',
 })
 export class JobService {
-  firstTime: boolean = true;
+  private firstTime: boolean = true;
   private jobsSubject = new BehaviorSubject<{ id: string; value: Job }[]>([]);
-  jobs$ = this.jobsSubject.asObservable();
+  jobs$ = this.jobsSubject.asObservable().pipe(skip(1));
   private jobs: any[] = [];
 
   private jobsEmptyMessageSubject = new BehaviorSubject('');
-  public jobsEmptyMessage$: Observable<string> =
-    this.jobsEmptyMessageSubject.asObservable();
+  public jobsEmptyMessage$: Observable<string> = this.jobsEmptyMessageSubject
+    .asObservable()
+    .pipe(skip(1));
 
   title: string = '';
   location: string = '';
@@ -97,7 +98,11 @@ export class JobService {
     let fullTimeMessage = this.fullTime ? 'Fulltime' : '';
 
     let message = `0 ${fullTimeMessage} Jobs were found ${titleMessage} ${locationMessage}`;
-    console.log(message);
     return message;
+  }
+
+  public refreshJobs() {
+    if (this.firstTime) return;
+    this.jobsSubject.next(this.jobs);
   }
 }

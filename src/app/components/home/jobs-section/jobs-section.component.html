@@ -1,5 +1,5 @@
 <div *ngIf="{ value: themeService.dark$ | async } as isDark">
-  <div *ngIf="jobs$ | async as jobs">
+  <div *ngIf="!loading">
     <div
       class="grid pb-[120px] lg:grid-cols-3 lg:gap-x-8 lgmd:gap-y-16 lg:mt-[105px] md:grid-cols-2 md:gap-x-3 md:mt-[70px] sm:grid-cols-1 sm:gap-y-12 sm:mt-14"
       *ngIf="jobs.length"
@@ -11,5 +11,15 @@
       ></job-preview>
     </div>
     <jobs-empty *ngIf="!jobs.length"></jobs-empty>
+  </div>
+
+  <div *ngIf="loading">
+    <div
+      class="grid pb-[120px] lg:grid-cols-3 lg:gap-x-8 lgmd:gap-y-16 lg:mt-[105px] md:grid-cols-2 md:gap-x-3 md:mt-[70px] sm:grid-cols-1 sm:gap-y-12 sm:mt-14"
+    >
+      <job-sekeleton
+        *ngFor="let item of [1, 2, 3, 4, 5, 6, 7, 8, 9]"
+      ></job-sekeleton>
+    </div>
   </div>
 </div>
