@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import {
   Component,
   EventEmitter,
@@ -6,14 +7,10 @@ import {
   Output,
   ViewEncapsulation,
 } from '@angular/core';
-import { IconType } from '../../../constants/icons';
-import { iconMap } from './../../../constants/icons';
 import { FormsModule } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { IconType } from '../../../constants/icons';
 import { NavigationService } from '../../../services/navigation.service';
-import { routes } from '../../../app.routes';
-import { Observable, take } from 'rxjs';
-import { CommonModule } from '@angular/common';
+import { iconMap } from './../../../constants/icons';
 
 @Component({
   selector: 'search-bar',

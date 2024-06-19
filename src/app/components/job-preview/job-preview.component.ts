@@ -11,6 +11,6 @@ import { Router, RouterModule } from '@angular/router';
   styleUrl: './job-preview.component.scss',
 })
 export class JobPreviewComponent {
-  @Input('dark') dark: boolean = true;
+  @Input('dark') dark!: boolean;
   @Input('job') job!: Job;
 }

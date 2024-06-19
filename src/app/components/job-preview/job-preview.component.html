@@ -1,7 +1,7 @@
 <div
   class="px-8 pb-9 w-full h-full rounded-md cursor-pointer select-none"
   [ngClass]="{ 'bg-very-dark-blue': dark, 'bg-pure-white': !dark }"
-  [routerLink]="['/jobs', job.id]"
+  [routerLink]="['/jobs', job.id - 1]"
 >
   <div class="translate-y-[-50%]">
     <div
